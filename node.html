@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js Explained - Server-side JavaScript</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS for Inter font and smooth scrolling */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+        .section-header {
+            border-left: 6px solid #C430D7; /* Purple border for section headers */
+            padding-left: 1rem;
+        }
+        /* Style for code snippets within pre tags */
+        pre {
+            background-color: #3E003D; /* Darker purple for code background */
+            color: #E2B2EC; /* Lighter purple for code text */
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-size: 0.875rem; /* text-sm */
+            line-height: 1.5;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); /* Inner shadow for code blocks */
+        }
+        pre code {
+            font-family: 'Fira Code', 'Cascadia Code', monospace; /* Monospaced font for code */
+        }
+    </style>
+</head>
+<body class="bg-[#F8F5FF] text-gray-800">
+
+    <!-- Header Section -->
+    <header class="bg-[#DF4881] text-white p-6 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-3xl font-extrabold mb-2 md:mb-0">Node.js Explained</h1>
+            <nav>
+                <ul class="flex flex-wrap justify-center space-x-4">
+                    <li><a href="#introduction" class="hover:text-[#F7C8DA] transition duration-300">Intro</a></li>
+                    <li><a href="#how-it-works" class="hover:text-[#F7C8DA] transition duration-300">How it Works</a></li>
+                    <li><a href="#installation" class="hover:text-[#F7C8DA] transition duration-300">Installation</a></li>
+                    <li><a href="#first-app" class="hover:text-[#F7C8DA] transition duration-300">First App</a></li>
+                    <li><a href="#npm" class="hover:text-[#F7C8DA] transition duration-300">NPM</a></li>
+                    <li><a href="#modules" class="hover:text-[#F7C8DA] transition duration-300">Modules</a></li>
+                    <li><a href="#async-js" class="hover:text-[#F7C8DA] transition duration-300">Async JS</a></li>
+                    <li><a href="#why-nodejs" class="hover:text-[#F7C8DA] transition duration-300">Why Node.js</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto p-6 mt-8">
+
+        <!-- Introduction Section -->
+        <section id="introduction" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">1. Introduction to Node.js</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Node.js is an open-source, cross-platform <strong class="font-semibold text-[#DF4881]">JavaScript runtime environment</strong> that allows developers to execute JavaScript code outside of a web browser. It uses Google Chrome's V8 JavaScript engine.
+            </p>
+            <p class="text-lg leading-relaxed">
+                Before Node.js, JavaScript was primarily confined to client-side (frontend) web development. Node.js enabled JavaScript to be used for server-side (backend) development, command-line tools, and desktop applications, creating a full-stack JavaScript ecosystem.
+            </p>
+        </section>
+
+        <!-- How Node.js Works Section -->
+        <section id="how-it-works" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">2. How Node.js Works</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Node.js operates on a <strong class="font-semibold text-[#DF4881]">single-threaded, event-driven, non-blocking I/O model</strong>, which makes it lightweight and efficient.
+            </p>
+            <ul class="list-disc list-inside text-lg leading-relaxed mt-6">
+                <li class="mb-2"><strong>V8 Engine:</strong> It compiles JavaScript directly into machine code, making it very fast.</li>
+                <li class="mb-2"><strong>Event Loop:</strong> Node.js uses an event loop to handle concurrent operations. Instead of waiting for an I/O operation (like a database query or file read) to complete, it sends the request and continues processing other requests. When the I/O operation finishes, it's added to the event queue.</li>
+                <li class="mb-2"><strong>Non-blocking I/O:</strong> This means that a process does not have to wait for an I/O operation to complete before continuing. This allows Node.js to handle a large number of concurrent connections efficiently.</li>
+            </ul>
+        </section>
+
+        <!-- Installation Section -->
+        <section id="installation" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">3. Installation</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Installing Node.js is straightforward. It also comes bundled with npm (Node Package Manager).
+            </p>
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Steps:</h3>
+            <ol class="list-decimal list-inside text-lg leading-relaxed mb-4">
+                <li class="mb-2">Go to the official Node.js website: <a href="https://nodejs.org/en/download/" target="_blank" class="text-[#C430D7] hover:underline">nodejs.org/en/download/</a></li>
+                <li class="mb-2">Download the installer for your operating system (Windows, macOS, Linux).</li>
+                <li class="mb-2">Follow the installation prompts.</li>
+                <li class="mb-2">Verify installation by opening your terminal/command prompt and typing:</li>
+            </ol>
+            <pre><code>
+node -v
+npm -v
+</code></pre>
+            <p class="text-lg leading-relaxed mt-4">
+                These commands should output the installed versions of Node.js and npm respectively.
+            </p>
+        </section>
+
+        <!-- First Node.js App Section -->
+        <section id="first-app" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">4. Your First Node.js Application (HTTP Server)</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Let's create a simple "Hello World" HTTP server using Node.js.
+            </p>
+            <p class="text-lg leading-relaxed mb-2">
+                1. Create a file named <code>app.js</code>:
+            </p>
+            <pre><code>
+const http = require('http'); // Import the built-in http module
+
+const hostname = '127.0.0.1'; // Localhost
+const port = 3000; // Port number to listen on
+
+// Create a server instance
+const server = http.createServer((req, res) => {
+  // Set the response HTTP header with HTTP status and Content-Type
+  res.statusCode = 200; // OK
+  res.setHeader('Content-Type', 'text/plain'); // Plain text response
+
+  // Send the response body "Hello World"
+  res.end('Hello World from Node.js!\n');
+});
+
+// The server listens on the specified port and hostname
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
+</code></pre>
+            <p class="text-lg leading-relaxed mt-4 mb-2">
+                2. Run the application from your terminal:
+            </p>
+            <pre><code>
+node app.js
+</code></pre>
+            <p class="text-lg leading-relaxed mt-4">
+                Now, open your web browser and navigate to <code>http://127.0.0.1:3000/</code>. You should see "Hello World from Node.js!".
+            </p>
+        </section>
+
+        <!-- NPM (Node Package Manager) Section -->
+        <section id="npm" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">5. NPM (Node Package Manager)</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                <strong class="font-semibold text-[#DF4881]">npm</strong> is the default package manager for Node.js. It's used to install, manage, and share JavaScript packages (libraries, frameworks, tools).
+            </p>
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Common NPM Commands:</h3>
+            <ul class="list-disc list-inside text-lg leading-relaxed mb-4">
+                <li class="mb-2"><code>npm init</code>: Initializes a new Node.js project, creating a <code>package.json</code> file.</li>
+                <li class="mb-2"><code>npm install &lt;package-name&gt;</code>: Installs a specific package locally.</li>
+                <li class="mb-2"><code>npm install -g &lt;package-name&gt;</code>: Installs a package globally (for command-line tools).</li>
+                <li class="mb-2"><code>npm install</code>: Installs all dependencies listed in <code>package.json</code>.</li>
+                <li class="mb-2"><code>npm uninstall &lt;package-name&gt;</code>: Uninstalls a package.</li>
+            </ul>
+            <pre><code>
+# Initialize a new project
+npm init -y
+
+# Install the Express.js framework
+npm install express
+</code></pre>
+        </section>
+
+        <!-- Modules Section -->
+        <section id="modules" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">6. Node.js Modules</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Node.js has a simple module system that allows you to organize your code into reusable units. There are three types of modules:
+            </p>
+            <ul class="list-disc list-inside text-lg leading-relaxed mt-6">
+                <li class="mb-2"><strong>Built-in Modules:</strong> Provided by Node.js (e.g., <code>http</code>, <code>fs</code> for file system, <code>path</code>). You use <code>require()</code> to import them.</li>
+                <li class="mb-2"><strong>Local Modules:</strong> Your own files. You export functionality using <code>module.exports</code> and import using <code>require()</code>.</li>
+                <li class="mb-2"><strong>Third-party Modules:</strong> Installed via npm (e.g., <code>express</code>, <code>lodash</code>). Imported using <code>require()</code>.</li>
+            </ul>
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Example: Creating a Local Module</h3>
+            <p class="text-lg leading-relaxed mb-2">
+                <code>my-module.js</code>:
+            </p>
+            <pre><code>
+// my-module.js
+function sayHello(name) {
+  return `Hello, ${name}!`;
+}
+
+module.exports = {
+  sayHello: sayHello,
+  version: '1.0'
+};
+</code></pre>
+            <p class="text-lg leading-relaxed mt-4 mb-2">
+                <code>app.js</code>:
+            </p>
+            <pre><code>
+// app.js
+const myModule = require('./my-module'); // Relative path for local module
+
+console.log(myModule.sayHello('Node.js User')); // Output: Hello, Node.js User!
+console.log('Module Version:', myModule.version); // Output: Module Version: 1.0
+</code></pre>
+        </section>
+
+        <!-- Asynchronous JavaScript Section -->
+        <section id="async-js" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">7. Asynchronous JavaScript in Node.js</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Due to its non-blocking nature, asynchronous programming is central to Node.js.
+            </p>
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Callbacks:</h3>
+            <p class="text-lg leading-relaxed mb-2">Functions passed as arguments to other functions, to be executed later.</p>
+            <pre><code>
+const fs = require('fs'); // File System module
+
+fs.readFile('example.txt', 'utf8', (err, data) => {
+  if (err) {
+    console.error('Error reading file:', err);
+    return;
+  }
+  console.log('File content:', data);
+});
+console.log('This will print before file content (non-blocking)');
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Promises (ES6+):</h3>
+            <p class="text-lg leading-relaxed mb-2">A cleaner way to handle asynchronous operations, representing a value that may be available now, or in the future, or never.</p>
+            <pre><code>
+const fs = require('fs').promises; // Use promise-based fs module
+
+fs.readFile('example.txt', 'utf8')
+  .then(data => {
+    console.log('File content (Promise):', data);
+  })
+  .catch(err => {
+    console.error('Error reading file (Promise):', err);
+  });
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Async/Await (ES2017+):</h3>
+            <p class="text-lg leading-relaxed mb-2">Syntactic sugar built on Promises, making asynchronous code look and behave more like synchronous code.</p>
+            <pre><code>
+const fs = require('fs').promises;
+
+async function readFileAsync() {
+  try {
+    const data = await fs.readFile('example.txt', 'utf8');
+    console.log('File content (Async/Await):', data);
+  } catch (err) {
+    console.error('Error reading file (Async/Await):', err);
+  }
+}
+readFileAsync();
+</code></pre>
+        </section>
+
+        <!-- Why Use Node.js Section -->
+        <section id="why-nodejs" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">8. Why Use Node.js?</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Node.js is a popular choice for many types of applications:
+            </p>
+            <ul class="list-disc list-inside text-lg leading-relaxed mt-6">
+                <li class="mb-2"><strong>Real-time Applications:</strong> Like chat applications, online gaming, and collaboration tools due to its event-driven architecture.</li>
+                <li class="mb-2"><strong>APIs (RESTful Services):</strong> Building fast and scalable backend APIs.</li>
+                <li class="mb-2"><strong>Microservices:</strong> Creating small, independent services.</li>
+                <li class="mb-2"><strong>Streaming Data:</strong> Efficiently handling large amounts of data in streams.</li>
+                <li class="mb-2"><strong>Full-stack JavaScript:</strong> Using JavaScript for both frontend (React, Vue, Angular) and backend (Node.js) development.</li>
+            </ul>
+        </section>
+
+        <!-- Conclusion / Next Steps -->
+        <section class="bg-[#FFE0EA] p-8 rounded-xl shadow-xl text-center">
+            <h2 class="text-3xl font-bold mb-4 text-[#B52D63]">Your Journey into Server-side JavaScript!</h2>
+            <p class="text-lg leading-relaxed mb-6">
+                You've now got a foundational understanding of Node.js! This opens up a whole new world of possibilities for full-stack development and backend systems.
+            </p>
+            <p class="text-lg leading-relaxed mb-6">
+                To continue, explore popular Node.js frameworks like Express.js, learn about databases (MongoDB, PostgreSQL), and dive deeper into building REST APIs and handling authentication.
+            </p>
+            <p class="text-lg leading-relaxed">
+                Keep building, keep experimenting, and happy coding!
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white p-6 mt-10 text-center">
+        <div class="container mx-auto">
+            <p>&copy; 2024 Node.js Explained. All rights reserved.</p>
+            <p class="text-sm mt-2">Built with HTML and Tailwind CSS.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

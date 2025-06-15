@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Java Tutorial - Learn the Fundamentals</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS for Inter font and smooth scrolling */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+        .section-header {
+            border-left: 6px solid #C430D7; /* Purple border for section headers */
+            padding-left: 1rem;
+        }
+        /* Style for code snippets within pre tags */
+        pre {
+            background-color: #3E003D; /* Darker purple for code background */
+            color: #E2B2EC; /* Lighter purple for code text */
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-size: 0.875rem; /* text-sm */
+            line-height: 1.5;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); /* Inner shadow for code blocks */
+        }
+        pre code {
+            font-family: 'Fira Code', 'Cascadia Code', monospace; /* Monospaced font for code */
+        }
+    </style>
+</head>
+<body class="bg-[#F8F5FF] text-gray-800">
+
+    <!-- Header Section -->
+    <header class="bg-[#DF4881] text-white p-6 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-3xl font-extrabold mb-2 md:mb-0">Core Java Fundamentals</h1>
+            <nav>
+                <ul class="flex flex-wrap justify-center space-x-4">
+                    <li><a href="#introduction" class="hover:text-[#F7C8DA] transition duration-300">Intro</a></li>
+                    <li><a href="#setup" class="hover:text-[#F7C8DA] transition duration-300">Setup</a></li>
+                    <li><a href="#syntax" class="hover:text-[#F7C8DA] transition duration-300">Syntax</a></li>
+                    <li><a href="#variables" class="hover:text-[#F7C8DA] transition duration-300">Variables</a></li>
+                    <li><a href="#operators" class="hover:text-[#F7C8DA] transition duration-300">Operators</a></li>
+                    <li><a href="#control-flow" class="hover:text-[#F7C8DA] transition duration-300">Control Flow</a></li>
+                    <li><a href="#methods" class="hover:text-[#F7C8DA] transition duration-300">Methods</a></li>
+                    <li><a href="#oop" class="hover:text-[#F7C8DA] transition duration-300">OOP</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto p-6 mt-8">
+
+        <!-- Introduction Section -->
+        <section id="introduction" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">1. Introduction to Java</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Java is a popular, high-level, class-based, object-oriented programming language designed to have as few implementation dependencies as possible. It's known for its "Write Once, Run Anywhere" (WORA) capability, meaning compiled Java code can run on all platforms that support Java without the need for recompilation.
+            </p>
+            <p class="text-lg leading-relaxed">
+                It's widely used for developing mobile applications (Android), web applications, desktop applications, games, and much more!
+            </p>
+        </section>
+
+        <!-- Java Setup Section -->
+        <section id="setup" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">2. Java Development Environment</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                To write and run Java programs, you'll need the Java Development Kit (JDK). The JDK includes:
+            </p>
+            <ul class="list-disc list-inside text-lg leading-relaxed mt-6">
+                <li class="mb-2"><strong>JRE (Java Runtime Environment):</strong> Contains the JVM (Java Virtual Machine) and class libraries needed to run Java applications.</li>
+                <li class="mb-2"><strong>JVM (Java Virtual Machine):</strong> The abstract machine that executes Java bytecode.</li>
+                <li class="mb-2"><strong>Development Tools:</strong> Compilers (<code>javac</code>), debuggers, and other tools necessary for developing Java applications.</li>
+            </ul>
+            <p class="text-lg leading-relaxed mt-4">
+                You can download the JDK from Oracle's official website. After installation, make sure to set up your environment variables (PATH) correctly.
+            </p>
+        </section>
+
+        <!-- Basic Syntax Section (Hello World) -->
+        <section id="syntax" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">3. Basic Syntax and "Hello World!"</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Let's start with the classic "Hello World!" program in Java.
+            </p>
+            <pre><code>public class HelloWorld { // Class declaration
+    public static void main(String[] args) { // Main method - entry point of the program
+        System.out.println("Hello, World!"); // Prints the message to the console
+    }
+}
+</code></pre>
+            <ul class="list-disc list-inside text-lg leading-relaxed mt-6">
+                <li class="mb-2"><strong><code>public class HelloWorld</code>:</strong> Every Java application must have at least one class, and the filename must match the class name (<code>HelloWorld.java</code>).</li>
+                <li class="mb-2"><strong><code>public static void main(String[] args)</code>:</strong> This is the main method, the entry point for all Java applications.</li>
+                <li class="mb-2"><strong><code>System.out.println()</code>:</strong> Used to print output to the console.</li>
+            </ul>
+            <p class="text-lg leading-relaxed mt-4">
+                To compile: <code>javac HelloWorld.java</code><br>
+                To run: <code>java HelloWorld</code>
+            </p>
+        </section>
+
+        <!-- Variables and Data Types Section -->
+        <section id="variables" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">4. Variables and Data Types</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Variables are containers for storing data values. In Java, you must declare the variable's type before using it.
+            </p>
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Primitive Data Types:</h3>
+            <ul class="list-disc list-inside text-lg leading-relaxed mb-4">
+                <li class="mb-2"><strong><code>int</code>:</strong> Integer numbers (e.g., <code>10</code>, <code>-5</code>)</li>
+                <li class="mb-2"><strong><code>double</code>:</strong> Floating-point numbers (e.g., <code>3.14</code>, <code>2.5</code>)</li>
+                <li class="mb-2"><strong><code>boolean</code>:</strong> True or false values (<code>true</code>, <code>false</code>)</li>
+                <li class="mb-2"><strong><code>char</code>:</strong> Single characters (e.g., <code>'A'</code>, <code>'b'</code>)</li>
+                <li class="mb-2"><strong><code>String</code>:</strong> (Not a primitive, but commonly used) Sequence of characters (e.g., <code>"Hello"</code>, <code>"Java"</code>)</li>
+            </ul>
+            <pre><code>int age = 30; // Declaring and initializing an integer variable
+double price = 19.99; // Declaring and initializing a double variable
+boolean isActive = true; // Declaring and initializing a boolean variable
+char grade = 'A'; // Declaring and initializing a character variable
+String name = "Alice"; // Declaring and initializing a String variable
+
+System.out.println("Name: " + name + ", Age: " + age);
+</code></pre>
+        </section>
+
+        <!-- Operators Section -->
+        <section id="operators" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">5. Operators</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Operators are used to perform operations on variables and values.
+            </p>
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Arithmetic Operators:</h3>
+            <ul class="list-disc list-inside text-lg leading-relaxed mb-4">
+                <li class="mb-2"><code>+</code> (Addition), <code>-</code> (Subtraction), <code>*</code> (Multiplication), <code>/</code> (Division), <code>%</code> (Modulus)</li>
+            </ul>
+            <pre><code>int x = 10;
+int y = 3;
+System.out.println("Sum: " + (x + y)); // Output: Sum: 13
+System.out.println("Remainder: " + (x % y)); // Output: Remainder: 1
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Comparison Operators:</h3>
+            <ul class="list-disc list-inside text-lg leading-relaxed mb-4">
+                <li class="mb-2"><code>==</code> (Equal to), <code>!=</code> (Not equal to), <code>&gt;</code> (Greater than), <code>&lt;</code> (Less than), etc.</li>
+            </ul>
+            <pre><code>int a = 5;
+int b = 8;
+System.out.println(a == b); // Output: false
+System.out.println(a < b); // Output: true
+</code></pre>
+        </section>
+
+        <!-- Control Flow Section -->
+        <section id="control-flow" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">6. Control Flow (Conditional Statements & Loops)</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Control flow statements enable Java to execute different blocks of code based on conditions or to repeat code.
+            </p>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">If-Else Statement</h3>
+            <pre><code>int score = 75;
+if (score >= 60) {
+    System.out.println("Passed!");
+} else {
+    System.out.println("Failed.");
+}
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">For Loop</h3>
+            <pre><code>for (int i = 0; i < 5; i++) {
+    System.out.println("Loop iteration: " + i);
+}
+/* Output:
+Loop iteration: 0
+Loop iteration: 1
+Loop iteration: 2
+Loop iteration: 3
+Loop iteration: 4
+*/
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">While Loop</h3>
+            <pre><code>int count = 0;
+while (count < 3) {
+    System.out.println("Count is: " + count);
+    count++;
+}
+/* Output:
+Count is: 0
+Count is: 1
+Count is: 2
+*/
+</code></pre>
+        </section>
+
+        <!-- Methods Section -->
+        <section id="methods" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">7. Methods (Functions)</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Methods are blocks of code that perform a specific task. They make code more organized, readable, and reusable.
+            </p>
+            <pre><code>public class MyCalculations {
+    // Method to add two integers
+    public static int add(int num1, int num2) {
+        return num1 + num2;
+    }
+
+    // Method with no return value (void)
+    public static void greet(String name) {
+        System.out.println("Hello, " + name + "!");
+    }
+
+    public static void main(String[] args) {
+        int sum = add(5, 3); // Calling the add method
+        System.out.println("Sum: " + sum); // Output: Sum: 8
+
+        greet("Charlie"); // Calling the greet method
+    }
+}
+</code></pre>
+        </section>
+
+        <!-- Object-Oriented Programming (OOP) Section -->
+        <section id="oop" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">8. Introduction to OOP (Classes & Objects)</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Java is an object-oriented language. OOP is a programming paradigm based on the concept of "objects", which can contain data and code: data in the form of fields (attributes), and code in the form of procedures (methods).
+            </p>
+            <ul class="list-disc list-inside text-lg leading-relaxed mb-4">
+                <li class="mb-2"><strong>Class:</strong> A blueprint or template for creating objects. It defines the properties (fields) and behaviors (methods) that objects of that class will have.</li>
+                <li class="mb-2"><strong>Object:</strong> An instance of a class. You can create multiple objects from a single class.</li>
+            </ul>
+            <pre><code>// Define a simple Car class
+class Car {
+    String color;
+    String brand;
+
+    // Method to display car details
+    void displayDetails() {
+        System.out.println("Brand: " + brand + ", Color: " + color);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Create an object of the Car class
+        Car myCar = new Car();
+
+        // Access attributes and assign values
+        myCar.brand = "Toyota";
+        myCar.color = "Blue";
+
+        // Call a method on the object
+        myCar.displayDetails(); // Output: Brand: Toyota, Color: Blue
+
+        Car anotherCar = new Car();
+        anotherCar.brand = "Honda";
+        anotherCar.color = "Red";
+        anotherCar.displayDetails(); // Output: Brand: Honda, Color: Red
+    }
+}
+```</pre>
+        </section>
+
+
+        <!-- Conclusion / Next Steps -->
+        <section class="bg-[#FFE0EA] p-8 rounded-xl shadow-xl text-center">
+            <h2 class="text-3xl font-bold mb-4 text-[#9B2455]">Your Java Journey Begins!</h2>
+            <p class="text-lg leading-relaxed mb-6">
+                You've successfully covered the core fundamentals of Java! This is a fantastic start to becoming a proficient Java developer.
+            </p>
+            <p class="text-lg leading-relaxed mb-6">
+                To continue your learning, explore advanced OOP concepts (inheritance, polymorphism, abstraction, interfaces), exception handling, collections, and file I/O.
+            </p>
+            <p class="text-lg leading-relaxed">
+                Keep coding, keep experimenting, and enjoy the power of Java!
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white p-6 mt-10 text-center">
+        <div class="container mx-auto">
+            <p>&copy; 2025 Core Java Tutorial. All rights reserved.</p>
+            <p class="text-sm mt-2">Built with HTML and Tailwind CSS.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Tutorial - Make Web Pages Interactive</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS for Inter font and smooth scrolling */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+        .section-header {
+            border-left: 6px solid #C430D7; /* Purple border for section headers */
+            padding-left: 1rem;
+        }
+        /* Style for code snippets within pre tags */
+        pre {
+            background-color: #3E003D; /* Darker purple for code background */
+            color: #E2B2EC; /* Lighter purple for code text */
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-size: 0.875rem; /* text-sm */
+            line-height: 1.5;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); /* Inner shadow for code blocks */
+        }
+        pre code {
+            font-family: 'Fira Code', 'Cascadia Code', monospace; /* Monospaced font for code */
+        }
+    </style>
+</head>
+<body class="bg-[#F8F5FF] text-gray-800">
+
+    <!-- Header Section -->
+    <header class="bg-[#DF4881] text-white p-6 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-3xl font-extrabold mb-2 md:mb-0">JavaScript Fundamentals</h1>
+            <nav>
+                <ul class="flex flex-wrap justify-center space-x-4">
+                    <li><a href="#introduction" class="hover:text-[#F7C8DA] transition duration-300">Intro</a></li>
+                    <li><a href="#setup" class="hover:text-[#F7C8DA] transition duration-300">Setup</a></li>
+                    <li><a href="#syntax" class="hover:text-[#F7C8DA] transition duration-300">Syntax</a></li>
+                    <li><a href="#variables" class="hover:text-[#F7C8DA] transition duration-300">Variables</a></li>
+                    <li><a href="#operators" class="hover:text-[#F7C8DA] transition duration-300">Operators</a></li>
+                    <li><a href="#control-flow" class="hover:text-[#F7C8DA] transition duration-300">Control Flow</a></li>
+                    <li><a href="#functions" class="hover:text-[#F7C8DA] transition duration-300">Functions</a></li>
+                    <li><a href="#dom" class="hover:text-[#F7C8DA] transition duration-300">DOM</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto p-6 mt-8">
+
+        <!-- Introduction Section -->
+        <section id="introduction" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">1. Introduction to JavaScript</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                JavaScript is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions. While it is most well-known as the scripting language for web pages, many non-browser environments also use it, such as Node.js, Apache CouchDB, and Adobe Acrobat.
+            </p>
+            <p class="text-lg leading-relaxed">
+                It's primarily used to make web pages interactive, bringing static HTML and CSS to life. Think animations, interactive forms, dynamic content updates, and much more!
+            </p>
+        </section>
+
+        <!-- JavaScript Setup Section -->
+        <section id="setup" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">2. Including JavaScript in HTML</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                You can add JavaScript to your HTML documents in a few ways:
+            </p>
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Inline JavaScript</h3>
+            <p class="text-lg leading-relaxed mb-2">Adding JavaScript directly within HTML attributes (generally discouraged for complex scripts).</p>
+            <pre><code>&lt;button onclick="alert('Hello from JavaScript!')"&gt;Click Me&lt;/button&gt;
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Internal JavaScript</h3>
+            <p class="text-lg leading-relaxed mb-2">Placing JavaScript code within <code>&lt;script&gt;</code> tags inside your HTML file (often in the <code>&lt;head&gt;</code> or just before the closing <code>&lt;/body&gt;</code> tag).</p>
+            <pre><code>&lt;!-- Inside &lt;head&gt; or &lt;body&gt; --&gt;
+&lt;script&gt;
+    console.log("Hello from internal JavaScript!");
+&lt;/script&gt;
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">External JavaScript (Recommended)</h3>
+            <p class="text-lg leading-relaxed mb-2">Linking to a separate <code>.js</code> file. This keeps your HTML clean and JavaScript reusable.</p>
+            <pre><code>&lt;!-- In your HTML head or before &lt;/body&gt; --&gt;
+&lt;script src="script.js"&gt;&lt;/script&gt;
+</code></pre>
+            <p class="text-lg leading-relaxed mt-4">
+                For external scripts, create a file named `script.js` (or any name you prefer) in the same directory as your HTML file, and put your JavaScript code there.
+            </p>
+        </section>
+
+        <!-- Basic Syntax Section (Console Log) -->
+        <section id="syntax" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">3. Basic Syntax and "Hello Console!"</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Let's start with logging a message to the browser's developer console.
+            </p>
+            <pre><code>// This is a single-line JavaScript comment
+
+/*
+This is a multi-line comment
+in JavaScript.
+*/
+
+console.log("Hello, Console!"); // Prints the message to the browser's console
+</code></pre>
+            <ul class="list-disc list-inside text-lg leading-relaxed mt-6">
+                <li class="mb-2"><strong><code>console.log()</code>:</strong> A function used to output messages to the browser's console (useful for debugging).</li>
+                <li class="mb-2">Statements in JavaScript often end with a semicolon (<code>;</code>), though it's optional in many cases due to Automatic Semicolon Insertion (ASI). It's good practice to use them.</li>
+            </ul>
+        </section>
+
+        <!-- Variables and Data Types Section -->
+        <section id="variables" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">4. Variables and Data Types</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Variables are containers for storing data values. JavaScript is dynamically typed, meaning you don't declare the type explicitly.
+            </p>
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Declaring Variables:</h3>
+            <ul class="list-disc list-inside text-lg leading-relaxed mb-4">
+                <li class="mb-2"><strong><code>var</code>:</strong> Oldest way, function-scoped, can be re-declared and re-assigned. (Generally avoided in modern JavaScript)</li>
+                <li class="mb-2"><strong><code>let</code>:</strong> Block-scoped, can be re-assigned but not re-declared in the same scope.</li>
+                <li class="mb-2"><strong><code>const</code>:</strong> Block-scoped, cannot be re-assigned or re-declared (constant).</li>
+            </ul>
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Common Data Types:</h3>
+            <ul class="list-disc list-inside text-lg leading-relaxed mb-4">
+                <li class="mb-2"><strong><code>String</code>:</strong> Text (e.g., <code>"Hello"</code>, <code>'World'</code>)</li>
+                <li class="mb-2"><strong><code>Number</code>:</strong> Numeric values (e.g., <code>10</code>, <code>3.14</code>, <code>-5</code>)</li>
+                <li class="mb-2"><strong><code>Boolean</code>:</strong> Logical values (<code>true</code>, <code>false</code>)</li>
+                <li class="mb-2"><strong><code>Null</code>:</strong> Intentional absence of any object value.</li>
+                <li class="mb-2"><strong><code>Undefined</code>:</strong> A variable that has been declared but not assigned a value.</li>
+                <li class="mb-2"><strong><code>Object</code>:</strong> Complex data structures (e.g., <code>{ key: 'value' }</code>, arrays, functions).</li>
+            </ul>
+            <pre><code>let userName = "Alice"; // String
+const age = 25; // Number
+let isStudent = true; // Boolean
+let score = null; // Null
+let city; // Undefined
+
+console.log(userName, age, isStudent, score, city);
+</code></pre>
+        </section>
+
+        <!-- Operators Section -->
+        <section id="operators" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">5. Operators</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Operators are symbols that perform operations on operands (values and variables).
+            </p>
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Arithmetic Operators:</h3>
+            <ul class="list-disc list-inside text-lg leading-relaxed mb-4">
+                <li class="mb-2"><code>+</code> (Addition), <code>-</code> (Subtraction), <code>*</code> (Multiplication), <code>/</code> (Division), <code>%</code> (Modulus)</li>
+            </ul>
+            <pre><code>let num1 = 10;
+let num2 = 3;
+console.log(num1 + num2); // 13
+console.log(num1 % num2); // 1
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Assignment Operators:</h3>
+            <ul class="list-disc list-inside text-lg leading-relaxed mb-4">
+                <li class="mb-2"><code>=</code> (Assign), <code>+=</code> (Add and assign), <code>-=</code> (Subtract and assign), etc.</li>
+            </ul>
+            <pre><code>let count = 5;
+count += 2; // Same as: count = count + 2;
+console.log(count); // 7
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Comparison Operators:</h3>
+            <ul class="list-disc list-inside text-lg leading-relaxed mb-4">
+                <li class="mb-2"><code>==</code> (Equal value), <code>===</code> (Equal value and type), <code>!=</code> (Not equal value), <code>!==</code> (Not equal value or type), <code>&gt;</code>, <code>&lt;</code>, etc.</li>
+            </ul>
+            <pre><code>let x = 10;
+let y = "10";
+console.log(x == y);  // true (compares value)
+console.log(x === y); // false (compares value AND type)
+</code></pre>
+        </section>
+
+        <!-- Control Flow Section -->
+        <section id="control-flow" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">6. Control Flow (Conditionals & Loops)</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Control flow statements dictate the order in which your code is executed.
+            </p>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">If-Else If-Else Statement</h3>
+            <pre><code>let temperature = 28;
+if (temperature > 30) {
+    console.log("It's hot!");
+} else if (temperature > 20) {
+    console.log("It's warm.");
+} else {
+    console.log("It's cool.");
+}
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">For Loop</h3>
+            <pre><code>for (let i = 0; i < 3; i++) {
+    console.log("Iteration: " + i);
+}
+/* Output:
+Iteration: 0
+Iteration: 1
+Iteration: 2
+*/
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">While Loop</h3>
+            <pre><code>let i = 0;
+while (i < 2) {
+    console.log("While count: " + i);
+    i++;
+}
+/* Output:
+While count: 0
+While count: 1
+*/
+</code></pre>
+        </section>
+
+        <!-- Functions Section -->
+        <section id="functions" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">7. Functions</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Functions are blocks of code designed to perform a particular task. They allow you to reuse code.
+            </p>
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Function Declaration</h3>
+            <pre><code>function greet(name) {
+    return "Hello, " + name + "!";
+}
+
+console.log(greet("Bob")); // Output: Hello, Bob!
+</code></pre>
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Arrow Functions (ES6+)</h3>
+            <pre><code>const multiply = (a, b) => a * b;
+
+console.log(multiply(4, 5)); // Output: 20
+</code></pre>
+        </section>
+
+        <!-- DOM Manipulation Section -->
+        <section id="dom" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">8. DOM Manipulation</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                The **D**ocument **O**bject **M**odel (DOM) is a programming interface for web documents. It represents the page structure as a tree of objects, allowing JavaScript to access and manipulate HTML and CSS.
+            </p>
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Selecting Elements:</h3>
+            <pre><code>// Select by ID
+const myHeading = document.getElementById('main-heading');
+console.log(myHeading.textContent); // Access text content
+
+// Select by Class
+const paragraphs = document.getElementsByClassName('my-paragraph');
+console.log(paragraphs[0].textContent);
+
+// Select by Tag Name
+const allDivs = document.getElementsByTagName('div');
+
+// More modern & versatile selectors (CSS-like)
+const firstDiv = document.querySelector('.container div'); // Selects the first div inside .container
+const allButtons = document.querySelectorAll('button'); // Selects all buttons
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Modifying Elements:</h3>
+            <pre><code>// Change text content
+myHeading.textContent = "New Heading Text";
+
+// Change HTML content
+const someDiv = document.getElementById('dynamic-content');
+someDiv.innerHTML = '&lt;p&gt;This content was added by &lt;strong&gt;JavaScript&lt;/strong&gt;.&lt;/p&gt;';
+
+// Change styles
+myHeading.style.color = 'blue';
+myHeading.style.backgroundColor = '#e0ffe0';
+
+// Add/Remove/Toggle classes
+myHeading.classList.add('font-bold');
+myHeading.classList.remove('text-xl');
+myHeading.classList.toggle('hidden'); // Toggles visibility
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Event Handling:</h3>
+            <p class="text-lg leading-relaxed mb-2">Making elements respond to user actions (clicks, key presses, etc.).</p>
+            <pre><code>const myButton = document.getElementById('my-button');
+
+myButton.addEventListener('click', function() {
+    alert('Button was clicked!');
+});
+
+// HTML for the button:
+// &lt;button id="my-button" class="bg-[#DF4881] text-white p-3 rounded-md"&gt;Click Me&lt;/button&gt;
+</code></pre>
+        </section>
+
+
+        <!-- Conclusion / Next Steps -->
+        <section class="bg-[#FFE0EA] p-8 rounded-xl shadow-xl text-center">
+            <h2 class="text-3xl font-bold mb-4 text-[#9B2455]">Your Journey into Web Interactivity!</h2>
+            <p class="text-lg leading-relaxed mb-6">
+                Congratulations! You've learned the essential fundamentals of JavaScript. This knowledge empowers you to create dynamic and interactive web experiences.
+            </p>
+            <p class="text-lg leading-relaxed mb-6">
+                To continue growing, explore more advanced topics like asynchronous JavaScript (Promises, async/await), fetching data from APIs, working with arrays and objects in depth, and learning modern frameworks like React, Angular, or Vue.js.
+            </p>
+            <p class="text-lg leading-relaxed">
+                Keep practicing, building projects, and transforming static pages into engaging applications!
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white p-6 mt-10 text-center">
+        <div class="container mx-auto">
+            <p>&copy; 2024 JavaScript Tutorial. All rights reserved.</p>
+            <p class="text-sm mt-2">Built with HTML and Tailwind CSS.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

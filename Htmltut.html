@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Tutorial - Learn the Basics</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS for Inter font and smooth scrolling */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+        .section-header {
+            border-left: 6px solid #C430D7; /* Purple border for section headers */
+            padding-left: 1rem;
+        }
+        /* Style for code snippets within pre tags */
+        pre {
+            background-color: #3E003D; /* Darker purple for code background */
+            color: #E2B2EC; /* Lighter purple for code text */
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-size: 0.875rem; /* text-sm */
+            line-height: 1.5;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); /* Inner shadow for code blocks */
+        }
+        pre code {
+            font-family: 'Fira Code', 'Cascadia Code', monospace; /* Monospaced font for code */
+        }
+    </style>
+</head>
+<body class="bg-[#F8F5FF] text-gray-800">
+
+    <!-- Header Section -->
+    <header class="bg-[#DF4881] text-white p-6 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-3xl font-extrabold mb-2 md:mb-0">HTML Basics Tutorial</h1>
+            <nav>
+                <ul class="flex flex-wrap justify-center space-x-4">
+                    <li><a href="#introduction" class="hover:text-[#F7C8DA] transition duration-300">Intro</a></li>
+                    <li><a href="#structure" class="hover:text-[#F7C8DA] transition duration-300">Structure</a></li>
+                    <li><a href="#common-tags" class="hover:text-[#F7C8DA] transition duration-300">Tags</a></li>
+                    <li><a href="#attributes" class="hover:text-[#F7C8DA] transition duration-300">Attributes</a></li>
+                    <li><a href="#forms" class="hover:text-[#F7C8DA] transition duration-300">Forms</a></li>
+                    <li><a href="#semantic-html" class="hover:text-[#F7C8DA] transition duration-300">Semantic</a></li>
+                    <li><a href="#div-span" class="hover:text-[#F7C8DA] transition duration-300">Div/Span</a></li>
+                    <li><a href="#comments" class="hover:text-[#F7C8DA] transition duration-300">Comments</a></li>
+                    <li><a href="#css-integration" class="hover:text-[#F7C8DA] transition duration-300">CSS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto p-6 mt-8">
+
+        <!-- Introduction Section -->
+        <section id="introduction" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">1. Introduction to HTML</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                HTML stands for <strong class="font-semibold">HyperText Markup Language</strong>. It is the standard markup language for creating web pages and web applications. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.
+            </p>
+            <p class="text-lg leading-relaxed">
+                Think of HTML as the skeleton of your website. It defines the content and its organization, but not its styling (that's where CSS comes in!).
+            </p>
+        </section>
+
+        <!-- HTML Structure Section -->
+        <section id="structure" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">2. Basic HTML Structure</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Every HTML document has a basic structure. Here's a breakdown:
+            </p>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My First HTML Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Content goes here --&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+    &lt;p&gt;This is my first paragraph.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+            <ul class="list-disc list-inside text-lg leading-relaxed mt-6">
+                <li class="mb-2"><code>&lt;!DOCTYPE html&gt;</code>: Declares the document type and version of HTML.</li>
+                <li class="mb-2"><code>&lt;html lang="en"&gt;</code>: The root element of an HTML page. <code>lang="en"</code> specifies the language of the document.</li>
+                <li class="mb-2"><code>&lt;head&gt;</code>: Contains meta-information about the HTML document (e.g., character set, viewport settings, page title, links to stylesheets). This content is not displayed on the page.</li>
+                <li class="mb-2"><code>&lt;body&gt;</code>: Contains the visible page content, such as text, images, videos, links, etc.</li>
+            </ul>
+        </section>
+
+        <!-- Common HTML Tags Section -->
+        <section id="common-tags" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">3. Common HTML Tags</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                HTML uses "tags" to mark up different types of content. Here are some of the most frequently used ones:
+            </p>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Headings</h3>
+            <p class="text-lg leading-relaxed mb-2">Used for titles and subtitles. <code>&lt;h1&gt;</code> is the most important, <code>&lt;h6&gt;</code> is the least.</p>
+            <pre><code>&lt;h1&gt;This is a Main Heading&lt;/h1&gt;
+&lt;h2&gt;This is a Subheading&lt;/h2&gt;
+&lt;h3&gt;Another level of Heading&lt;/h3&gt;
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Paragraphs</h3>
+            <p class="text-lg leading-relaxed mb-2">The <code>&lt;p&gt;</code> tag defines a paragraph of text.</p>
+            <pre><code>&lt;p&gt;This is a simple paragraph of text on our web page. It contains some information.&lt;/p&gt;
+&lt;p&gt;You can have multiple paragraphs to organize your content.&lt;/p&gt;
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Links (Anchors)</h3>
+            <p class="text-lg leading-relaxed mb-2">The <code>&lt;a&gt;</code> tag creates hyperlinks to other pages or resources. The <code>href</code> attribute specifies the destination.</p>
+            <pre><code>&lt;a href="https://www.google.com"&gt;Visit Google&lt;/a&gt;
+&lt;a href="#introduction"&gt;Go to Introduction Section&lt;/a&gt;
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Images</h3>
+            <p class="text-lg leading-relaxed mb-2">The <code>&lt;img&gt;</code> tag embeds an image. It's a self-closing tag. The <code>src</code> attribute specifies the image source, and <code>alt</code> provides alternative text for accessibility.</p>
+            <pre><code>&lt;img src="https://placehold.co/600x400/ADADAD/FFFFFF?text=Placeholder+Image" alt="A descriptive image" class="rounded-lg shadow-md max-w-full h-auto"&gt;
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Lists</h3>
+            <p class="text-lg leading-relaxed mb-2">
+                HTML supports ordered lists (<code>&lt;ol&gt;</code> for numbered) and unordered lists (<code>&lt;ul&gt;</code> for bullet points). List items are defined by the <code>&lt;li&gt;</code> tag.
+            </p>
+            <pre><code>&lt;!-- Unordered List --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Apple&lt;/li&gt;
+    &lt;li&gt;Banana&lt;/li&gt;
+    &lt;li&gt;Cherry&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Ordered List --&gt;
+&lt;ol&gt;
+    &lt;li&gt;First item&lt;/li&gt;
+    &lt;li&gt;Second item&lt;/li&gt;
+    &lt;li&gt;Third item&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+        </section>
+
+        <!-- Attributes Section -->
+        <section id="attributes" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">4. HTML Attributes</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Attributes provide additional information about HTML elements. They are always specified in the start tag and usually come in name/value pairs like: <code>name="value"</code>.
+            </p>
+            <ul class="list-disc list-inside text-lg leading-relaxed mb-4">
+                <li class="mb-2"><code>href</code>: Specifies the URL for a link (used with <code>&lt;a&gt;</code>).</li>
+                <li class="mb-2"><code>src</code>: Specifies the path to the image (used with <code>&lt;img&gt;</code>).</li>
+                <li class="mb-2"><code>alt</code>: Specifies an alternative text for an image (used with <code>&lt;img&gt;</code>).</li>
+                <li class="mb-2"><code>width</code> and <code>height</code>: Specifies the width and height of an image.</li>
+                <li class="mb-2"><code>class</code>: Used to apply CSS styling (e.g., Tailwind CSS classes).</li>
+                <li class="mb-2"><code>id</code>: Provides a unique identifier for an element, often used for CSS targeting or JavaScript manipulation.</li>
+            </ul>
+            <p class="text-lg leading-relaxed">
+                Example:
+            </p>
+            <pre><code>&lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" title="MDN HTML Docs"&gt;Learn more about HTML&lt;/a&gt;
+</code></pre>
+            <p class="text-lg leading-relaxed">
+                In the example above, <code>href</code>, <code>target</code>, and <code>title</code> are attributes of the <code>&lt;a&gt;</code> tag.
+            </p>
+        </section>
+
+        <!-- HTML Forms Section -->
+        <section id="forms" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">5. HTML Forms</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                HTML forms are used to collect user input. The `&lt;form&gt;` element is a container for different types of input elements, such as text fields, checkboxes, radio buttons, submit buttons, etc.
+            </p>
+            <pre><code>&lt;form action="/submit-form" method="post"&gt;
+    &lt;label for="username" class="block text-lg font-medium text-gray-700 mb-1"&gt;Username:&lt;/label&gt;
+    &lt;input type="text" id="username" name="username" placeholder="Enter your username" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#C430D7] focus:border-[#C430D7] sm:text-sm mb-4"&gt;
+
+    &lt;label for="password" class="block text-lg font-medium text-gray-700 mb-1"&gt;Password:&lt;/label&gt;
+    &lt;input type="password" id="password" name="password" placeholder="Enter your password" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#C430D7] focus:border-[#C430D7] sm:text-sm mb-4"&gt;
+
+    &lt;input type="submit" value="Login" class="w-full bg-[#DF4881] hover:bg-[#B52D63] text-white font-bold py-2 px-4 rounded-md shadow-md transition duration-300 ease-in-out cursor-pointer"&gt;
+&lt;/form&gt;
+</code></pre>
+            <ul class="list-disc list-inside text-lg leading-relaxed mt-6">
+                <li class="mb-2"><code>&lt;form&gt;</code>: Defines an HTML form.</li>
+                <li class="mb-2"><code>action</code> attribute: Specifies where to send the form-data when a form is submitted.</li>
+                <li class="mb-2"><code>method</code> attribute: Specifies the HTTP method (GET or POST) to be used when submitting the form data.</li>
+                <li class="mb-2"><code>&lt;input&gt;</code>: The most important form element. It can be displayed in several ways, depending on the <code>type</code> attribute.</li>
+                <li class="mb-2"><code>&lt;label&gt;</code>: Defines a label for several form elements.</li>
+            </ul>
+        </section>
+
+        <!-- Semantic HTML Section -->
+        <section id="semantic-html" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">6. Semantic HTML</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Semantic HTML elements clearly describe their meaning to both the browser and the developer. Using semantic elements correctly helps with accessibility, SEO, and makes your code easier to understand.
+            </p>
+            <pre><code>&lt;header&gt;
+    &lt;h1&gt;Website Title&lt;/h1&gt;
+    &lt;nav&gt;&lt;ul&gt;&lt;li&gt;Menu Item&lt;/li&gt;&lt;/ul&gt;&lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;section&gt;
+        &lt;h2&gt;Section Title&lt;/h2&gt;
+        &lt;article&gt;
+            &lt;h3&gt;Article Title&lt;/h3&gt;
+            &lt;p&gt;Article content...&lt;/p&gt;
+        &lt;/article&gt;
+    &lt;/section&gt;
+    &lt;aside&gt;
+        &lt;p&gt;Related content or sidebar.&lt;/p&gt;
+    &lt;/aside&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;Copyright information.&lt;/p&gt;
+&lt;/footer&gt;
+</code></pre>
+            <ul class="list-disc list-inside text-lg leading-relaxed mt-6">
+                <li class="mb-2"><code>&lt;header&gt;</code>: Represents introductory content, usually a group of navigational aids.</li>
+                <li class="mb-2"><code>&lt;nav&gt;</code>: Defines a set of navigation links.</li>
+                <li class="mb-2"><code>&lt;main&gt;</code>: Represents the dominant content of the <code>&lt;body&gt;</code>.</li>
+                <li class="mb-2"><code>&lt;section&gt;</code>: Defines a section of a document.</li>
+                <li class="mb-2"><code>&lt;article&gt;</code>: Represents independent, self-contained content.</li>
+                <li class="mb-2"><code>&lt;aside&gt;</code>: Defines content aside from the content it is placed in (like a sidebar).</li>
+                <li class="mb-2"><code>&lt;footer&gt;</code>: Represents a footer for its nearest sectioning content or sectioning root element.</li>
+            </ul>
+        </section>
+
+        <!-- Div and Span Section -->
+        <section id="div-span" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">7. Div and Span</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                The <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> tags are generic container elements used to group other elements or text for styling with CSS or manipulating with JavaScript.
+            </p>
+            <ul class="list-disc list-inside text-lg leading-relaxed mb-4">
+                <li class="mb-2"><code>&lt;div&gt;</code>: A block-level element. It creates a new line before and after it. Often used for layout purposes.</li>
+                <li class="mb-2"><code>&lt;span&gt;</code>: An inline-level element. It does not create a new line. Often used to apply styles to a small part of text.</li>
+            </ul>
+            <pre><code>&lt;div class="bg-[#F8F5FF] p-4 rounded-md mb-4"&gt;
+    &lt;p&gt;This is a block of content inside a &lt;strong&gt;div&lt;/strong&gt; tag.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This sentence has a &lt;span class="text-[#C430D7] font-semibold"&gt;highlighted word&lt;/span&gt; using a span tag.&lt;/p&gt;
+</code></pre>
+        </section>
+
+        <!-- HTML Comments Section -->
+        <section id="comments" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">8. HTML Comments</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Comments are notes that you add to your code. They are ignored by the browser and are not displayed on the web page. They are useful for explaining your code, making it more readable, and for temporarily disabling code.
+            </p>
+            <pre><code>&lt;!-- This is a single-line comment --&gt;
+
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+
+&lt;!--
+    This is a multi-line comment.
+    It can span across several lines.
+    Useful for detailed explanations.
+--&gt;
+</code></pre>
+            <p class="text-lg leading-relaxed mt-6">
+                Comments start with <code>&lt;!--</code> and end with <code>--&gt;</code>.
+            </p>
+        </section>
+
+        <!-- Basic CSS Integration Section -->
+        <section id="css-integration" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">9. Basic CSS Integration</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                While this tutorial focuses on HTML, it's important to know how to connect your HTML to CSS for styling. There are three main ways:
+            </p>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Inline CSS</h3>
+            <p class="text-lg leading-relaxed mb-2">Applying styles directly to an HTML element using the <code>style</code> attribute.</p>
+            <pre><code>&lt;p style="color: #DF4881; font-size: 18px;"&gt;This text is styled inline.&lt;/p&gt;
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Internal CSS</h3>
+            <p class="text-lg leading-relaxed mb-2">Writing CSS rules within a <code>&lt;style&gt;</code> tag in the <code>&lt;head&gt;</code> section of your HTML document.</p>
+            <pre><code>&lt;head&gt;
+    &lt;style&gt;
+        h1 {
+            color: #C430D7;
+            text-align: center;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">External CSS (Most Common)</h3>
+            <p class="text-lg leading-relaxed mb-2">Linking an external <code>.css</code> file to your HTML document using the <code>&lt;link&gt;</code> tag in the <code>&lt;head&gt;</code>.</p>
+            <pre><code>&lt;head&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+</code></pre>
+        </section>
+
+        <!-- Conclusion / Next Steps -->
+        <section class="bg-[#FFE0EA] p-8 rounded-xl shadow-xl text-center">
+            <h2 class="text-3xl font-bold mb-4 text-[#9B2455]">What's Next?</h2>
+            <p class="text-lg leading-relaxed mb-6">
+                You've covered the fundamental concepts of HTML! To make your web pages look amazing, you'll want to learn about CSS (Cascading Style Sheets). For interactivity, JavaScript is your next step!
+            </p>
+            <p class="text-lg leading-relaxed">
+                Keep experimenting with the tags and attributes. The best way to learn is by doing!
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white p-6 mt-10 text-center">
+        <div class="container mx-auto">
+            <p>&copy; 2024 HTML Tutorial. All rights reserved.</p>
+            <p class="text-sm mt-2">Built with HTML and Tailwind CSS.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

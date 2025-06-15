@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #df4881, #c430d7);
+      margin: 0;
+      padding: 20px;
+      color: white;
+    }
+    .playground {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      height: 80vh;
+    }
+    .editor-container {
+      display: flex;
+      flex-direction: column;
+    }
+    .editor-label {
+      background: rgba(0,0,0,0.3);
+      padding: 8px;
+      border-radius: 5px 5px 0 0;
+      font-weight: bold;
+    }
+    textarea {
+      flex-grow: 1;
+      background: rgba(0,0,0,0.2);
+      border: none;
+      color: white;
+      padding: 10px;
+      border-radius: 0 0 5px 5px;
+      resize: none;
+    }
+    #preview {
+      background: white;
+      border-radius: 5px;
+      padding: 20px;
+      color: black;
+      overflow: auto;
+    }
+    button {
+      background: white;
+      color: #c430d7;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.3s;
+    }
+    button:hover {
+      background: #f0f0f0;
+      transform: translateY(-2px);
+    }
+    h1 {
+      text-align: center;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <h1>Code Playground</h1>
+  <div class="playground">
+    <div class="editor-container">
+      <div class="editor-label">HTML</div>
+      <textarea id="html-code" placeholder="Enter HTML here...">&lt;div class="box"&gt;
+  &lt;h2&gt;Welcome!&lt;/h2&gt;
+  &lt;p&gt;Edit this code to see changes.&lt;/p&gt;
+  &lt;button onclick="showMessage()"&gt;Click Me&lt;/button&gt;
+&lt;/div&gt;</textarea>
+    </div>
+    
+    <div class="editor-container">
+      <div class="editor-label">CSS</div>
+      <textarea id="css-code" placeholder="Enter CSS here...">.box {
+  background: linear-gradient(45deg, #df4881, #c430d7);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+button {
+  background: white;
+  color: #c430d7;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}</textarea>
+    </div>
+    
+    <div class="editor-container">
+      <div class="editor-label">JavaScript</div>
+      <textarea id="js-code" placeholder="Enter JavaScript here...">function showMessage() {
+  alert("Hello from the playground!");
+}</textarea>
+    </div>
+    
+    <div>
+      <div class="editor-label">Live Preview</div>
+      <div id="preview"></div>
+      <button onclick="runCode()">Run Code</button>
+    </div>
+  </div>
+
+  <script>
+    function runCode() {
+      const html = document.getElementById('html-code').value;
+      const css = document.getElementById('css-code').value;
+      const js = document.getElementById('js-code').value;
+      
+      const preview = document.getElementById('preview');
+      preview.innerHTML = html + `<style>${css}</style>`;
+      
+      try {
+        eval(js);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    
+    // Run initially
+    runCode();
+  </script>
+</body>
+</html>

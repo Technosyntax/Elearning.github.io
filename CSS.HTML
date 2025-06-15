@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Tutorial - Styling Web Pages</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS for Inter font and smooth scrolling */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+        .section-header {
+            border-left: 6px solid #C430D7; /* Purple border for section headers */
+            padding-left: 1rem;
+        }
+        /* Style for code snippets within pre tags */
+        pre {
+            background-color: #3E003D; /* Darker purple for code background */
+            color: #E2B2EC; /* Lighter purple for code text */
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-size: 0.875rem; /* text-sm */
+            line-height: 1.5;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); /* Inner shadow for code blocks */
+        }
+        pre code {
+            font-family: 'Fira Code', 'Cascadia Code', monospace; /* Monospaced font for code */
+        }
+    </style>
+</head>
+<body class="bg-[#F8F5FF] text-gray-800">
+
+    <!-- Header Section -->
+    <header class="bg-[#DF4881] text-white p-6 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-3xl font-extrabold mb-2 md:mb-0">CSS Basics Tutorial</h1>
+            <nav>
+                <ul class="flex flex-wrap justify-center space-x-4">
+                    <li><a href="#introduction" class="hover:text-[#F7C8DA] transition duration-300">Intro</a></li>
+                    <li><a href="#basics" class="hover:text-[#F7C8DA] transition duration-300">Basics</a></li>
+                    <li><a href="#selectors" class="hover:text-[#F7C8DA] transition duration-300">Selectors</a></li>
+                    <li><a href="#properties" class="hover:text-[#F7C8DA] transition duration-300">Properties</a></li>
+                    <li><a href="#box-model" class="hover:text-[#F7C8DA] transition duration-300">Box Model</a></li>
+                    <li><a href="#flexbox" class="hover:text-[#F7C8DA] transition duration-300">Flexbox</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto p-6 mt-8">
+
+        <!-- Introduction Section -->
+        <section id="introduction" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">1. Introduction to CSS</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                CSS stands for <strong class="font-semibold">Cascading Style Sheets</strong>. It is a stylesheet language used for describing the presentation of a document written in HTML or XML (including XML dialects such as SVG, MathML or XHTML). CSS describes how elements should be rendered on screen, on paper, in speech, or on other media.
+            </p>
+            <p class="text-lg leading-relaxed">
+                While HTML provides the structure and content, CSS is responsible for the look and feel of your website – colors, fonts, layouts, animations, and more!
+            </p>
+        </section>
+
+        <!-- CSS Basics Section -->
+        <section id="basics" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">2. Basic CSS Syntax</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                A CSS rule-set consists of a selector and a declaration block.
+            </p>
+            <pre><code>/* This is a CSS comment */
+selector {
+    property: value; /* Declaration */
+    property-two: value-two;
+}
+</code></pre>
+            <ul class="list-disc list-inside text-lg leading-relaxed mt-6">
+                <li class="mb-2"><strong>Selector:</strong> Points to the HTML element you want to style (e.g., <code>h1</code>, <code>p</code>, <code>.my-class</code>, <code>#my-id</code>).</li>
+                <li class="mb-2"><strong>Declaration:</strong> Consists of a property and a value, separated by a colon (<code>:</code>).</li>
+                <li class="mb-2"><strong>Property:</strong> The style attribute you want to change (e.g., <code>color</code>, <code>font-size</code>, <code>margin</code>).</li>
+                <li class="mb-2"><strong>Value:</strong> The value for the property (e.g., <code>blue</code>, <code>16px</code>, <code>20px</code>).</li>
+                <li class="mb-2">Each declaration ends with a semicolon (<code>;</code>).</li>
+            </ul>
+        </section>
+
+        <!-- CSS Selectors Section -->
+        <section id="selectors" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">3. CSS Selectors</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Selectors are used to "find" (or select) the HTML elements you want to style.
+            </p>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Element Selector</h3>
+            <p class="text-lg leading-relaxed mb-2">Selects HTML elements based on their tag name.</p>
+            <pre><code>p {
+    color: #333;
+    font-size: 16px;
+}
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">ID Selector</h3>
+            <p class="text-lg leading-relaxed mb-2">Selects an element with a specific <code>id</code> attribute. IDs must be unique within an HTML document. Uses a <code>#</code> prefix.</p>
+            <pre><code>#my-heading {
+    text-align: center;
+    color: #DF4881;
+}
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Class Selector</h3>
+            <p class="text-lg leading-relaxed mb-2">Selects elements with a specific <code>class</code> attribute. Classes can be used on multiple elements. Uses a <code>.</code> prefix.</p>
+            <pre><code>.highlight {
+    background-color: #F7C8DA;
+    font-weight: bold;
+}
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Universal Selector</h3>
+            <p class="text-lg leading-relaxed mb-2">Selects all HTML elements on the page. Uses an asterisk (<code>*</code>).</p>
+            <pre><code>* {
+    margin: 0;
+    padding: 0;
+}
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Grouping Selector</h3>
+            <p class="text-lg leading-relaxed mb-2">Selects multiple elements with the same style definitions. Separate selectors with a comma.</p>
+            <pre><code>h1, h2, p {
+    font-family: sans-serif;
+}
+</code></pre>
+        </section>
+
+        <!-- CSS Properties Section -->
+        <section id="properties" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">4. Common CSS Properties</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                There are hundreds of CSS properties, but here are some of the most commonly used ones:
+            </p>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Color and Background</h3>
+            <pre><code>p {
+    color: #333; /* Text color */
+    background-color: #F8F5FF; /* Background color of the element */
+}
+body {
+    background-image: url('https://placehold.co/1200x800/ADADAD/FFFFFF?text=Background'); /* Placeholder background image */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Text Properties</h3>
+            <pre><code>h1 {
+    font-family: 'Arial', sans-serif; /* Font typeface */
+    font-size: 32px; /* Size of the font */
+    font-weight: bold; /* Boldness of the text */
+    text-align: center; /* Alignment of text */
+    line-height: 1.5; /* Spacing between lines of text */
+    text-decoration: underline; /* Underline, overline, line-through */
+}
+</code></pre>
+
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Box Model Properties (Padding, Border, Margin)</h3>
+            <pre><code>div {
+    width: 200px; /* Width of the content area */
+    height: 150px; /* Height of the content area */
+    padding: 20px; /* Space between content and border */
+    border: 2px solid #C430D7; /* Border around the content and padding */
+    margin: 10px auto; /* Space outside the border */
+}
+</code></pre>
+        </section>
+
+        <!-- The CSS Box Model Section -->
+        <section id="box-model" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">5. The CSS Box Model</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                In CSS, every element is treated as a rectangular box. The CSS box model is essentially a box that wraps around every HTML element. It consists of: margins, borders, padding, and the actual content.
+            </p>
+            <ol class="list-decimal list-inside text-lg leading-relaxed mt-6">
+                <li class="mb-2"><strong>Content:</strong> The actual content of the element, such as text or images.</li>
+                <li class="mb-2"><strong>Padding:</strong> Clears an area around the content. It is transparent.</li>
+                <li class="mb-2"><strong>Border:</strong> A border that goes around the padding and content.</li>
+                <li class="mb-2"><strong>Margin:</strong> Clears an area outside the border. It is transparent.</li>
+            </ol>
+            <pre><code>.box-example {
+    width: 200px;
+    height: 100px;
+    background-color: #F7C8DA; /* Content area background */
+    padding: 20px; /* Space inside the border */
+    border: 5px solid #DF4881; /* The border itself */
+    margin: 30px; /* Space outside the border */
+}
+</code></pre>
+            <p class="text-lg leading-relaxed mt-6">
+                Understanding the box model is crucial for controlling the layout and spacing of elements on your web page.
+            </p>
+        </section>
+
+        <!-- Flexbox Section -->
+        <section id="flexbox" class="bg-white p-8 rounded-xl shadow-xl mb-10">
+            <h2 class="text-3xl font-bold mb-4 section-header text-[#C430D7]">6. Flexbox for Layout</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Flexbox (Flexible Box Layout Module) is a one-dimensional layout method for arranging items in a container, allowing them to be aligned and distributed easily. It's excellent for creating responsive components.
+            </p>
+            <h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-700">Basic Flex Container</h3>
+            <pre><code>.flex-container {
+    display: flex; /* Makes the container a flex container */
+    justify-content: space-around; /* Distributes items with space around them */
+    align-items: center; /* Aligns items vertically in the center */
+    height: 150px;
+    background-color: #E2B2EC;
+    border: 1px dashed #C430D7;
+    padding: 10px;
+}
+.flex-item {
+    background-color: #DF4881;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+}
+</code></pre>
+            <p class="text-lg leading-relaxed mt-4">
+                And the corresponding HTML:
+            </p>
+            <pre><code>&lt;div class="flex-container"&gt;
+    &lt;div class="flex-item"&gt;Item 1&lt;/div&gt;
+    &lt;div class="flex-item"&gt;Item 2&lt;/div&gt;
+    &lt;div class="flex-item"&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            <p class="text-lg leading-relaxed mt-6">
+                Flexbox greatly simplifies complex layouts, especially for aligning and distributing items within a single row or column.
+            </p>
+        </section>
+
+
+        <!-- Conclusion / Next Steps -->
+        <section class="bg-[#FFE0EA] p-8 rounded-xl shadow-xl text-center">
+            <h2 class="text-3xl font-bold mb-4 text-[#9B2455]">Where to go from here?</h2>
+            <p class="text-lg leading-relaxed mb-6">
+                You've now learned the core concepts of CSS! This is a powerful tool to make your web pages visually appealing.
+            </p>
+            <p class="text-lg leading-relaxed mb-6">
+                To master web design, continue exploring more advanced CSS features like Grid Layout, transitions, animations, and responsive design techniques. Finally, delve into JavaScript to add interactivity to your beautiful web pages!
+            </p>
+            <p class="text-lg leading-relaxed">
+                Keep practicing and building! Happy styling!
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white p-6 mt-10 text-center">
+        <div class="container mx-auto">
+            <p>&copy; 2024 CSS Tutorial. All rights reserved.</p>
+            <p class="text-sm mt-2">Built with HTML and Tailwind CSS.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
